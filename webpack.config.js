@@ -4,8 +4,8 @@ const path = require("path");
 
 // Here goes all configuration
 module.exports = {
-  mode: "development",
-  entry: "./src/app.js",
+  mode: "production",
+  entry: "./src/app.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -19,7 +19,15 @@ module.exports = {
           loader: "babel-loader", // looks at .babelrc
         },
       },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -33,4 +41,5 @@ module.exports = {
     open: true, // open new tab
     hot: true, // Enable webpack's Hot Module Replacement
   },
+  devtool: "source-map",
 };
