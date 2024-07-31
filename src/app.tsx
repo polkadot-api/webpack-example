@@ -10,9 +10,9 @@ const chainSpec = import("polkadot-api/chains/westend2").then(
   (m) => m.chainSpec
 );
 
-const worker = new Worker(
-  new URL("polkadot-api/smoldot/worker", import.meta.url)
-);
+const worker = new Worker(new URL("./worker.ts", import.meta.url), {
+  type: "module",
+});
 
 const smoldot = startFromWorker(worker);
 const client = createClient(
@@ -50,7 +50,7 @@ const ShowIssuance = () => {
 
 createRoot(document.getElementById("app")).render(
   <>
-    <h1>Webpack + react + typescript + smoldot + papi</h1>
+    <h1>Parcel + react + typescript + smoldot + papi</h1>
     <ShowIssuance />
   </>
 );

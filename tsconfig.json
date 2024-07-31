@@ -7,7 +7,7 @@
     "jsx": "react",
     "allowJs": true,
     "sourceMap": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true
   }
 }
