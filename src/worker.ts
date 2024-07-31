@@ -1,1 +1,1 @@
-import "polkadot-api/smoldot/worker";
+import "smoldot/worker";
